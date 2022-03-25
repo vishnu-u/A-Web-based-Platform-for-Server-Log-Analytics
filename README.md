@@ -10,3 +10,6 @@
   <li>On local run the main.py file (Server)</li>
   <li>Access the platform on a browser (localhost)</li>
 </ul>
+
+## Publication
+<p>For more info, refer to the publication: http://ijarset.com/upload/2022/february/8-vish0399-09.doc.pdf
