@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Cloud Dashboard
+        </title>
+
+       <style>
+html,body
+{
+    width : 100%;
+    height : 100%;
+    margin : 0;
+    padding : 0;
+}
+
+
+.flex-div
+{
+    display: flex !important;
+    width : 100%;
+    height : auto;
+    flex-direction: row;
+}
+
+.g1
+{
+    width : 50%;
+    height : 300px;
+    margin : 0;
+    padding : 0;
+}
+
+.g2
+{
+    width : 50%;
+    height : 300px;
+    margin : 0;
+    padding : 0;
+}
+
+.flex-last
+{
+    display: flex !important;
+    width : 100%;
+    height : auto;
+    flex-direction: row;
+}
+
+.g3-1,.g3-2
+{
+    width : 50%;
+    height : 300px;
+    margin : 0;
+    padding : 0;
+}
+
+.flex-div-2
+{
+    display: flex !important;
+    width : 100%;
+    height : auto;
+    flex-direction: column;
+}
+
+.g4-1
+{
+    width : 100%;
+    height : 300px;
+    margin : 0;
+    padding : 0;
+}
+.g4-2
+{
+    width : 100%;
+    height : 500px;
+    margin : 0;
+    padding : 0;
+}
+
+.flex-div-2-1
+{
+    display: flex !important;
+    width : 100%;
+    height : auto;
+    flex-direction: row;
+}
+
+.flex-div-2-1 > div
+{
+    width : 33.33333%;
+    height : 110px;
+    margin : 0;
+    padding : 0;
+    text-align: center;
+}
+
+.flex-div-2-1 > div > h2
+{
+    font-family: 'Arial';
+    margin-top : 5px;
+    margin-bottom: 5px;
+    font-weight : 200;
+    font-size : 20px;
+}
+
+.flex-div-3
+{
+    display: flex !important;
+    width : 100%;
+    height : auto;
+    flex-direction: row;
+}
+
+.g6
+{
+    width : 90%;
+    height : 600px;
+}
+
+.flex-div-3-2
+{
+    display: flex !important;
+    width : 100%;
+    height : auto;
+    flex-direction: column;
+}
+
+.g7
+{
+    width : 100%;
+    height : 300px;
+}
+
+.g8
+{
+    width : 100%;
+    height : 300px;
+}
+
+p
+{
+    margin : 5px;
+    font-family: 'Arial';
+    font-size : 14px;
+}
+.inside-flex
+{
+    display: flex;
+    width : 100%;
+    height : auto;
+    flex-direction: row;
+}
+
+.g4-1-1
+{
+    width : 100%;
+    height : 300px;
+}
+
+ </style>
+
+    
+    </head>
+
+    <body onload="loadJSON()">
+        <!--Time Series Analysis-->
+        <div class="flex-div">
+            <div class="g1" id="graph1"></div>
+            <div class="g2" id="graph2"></div>
+        </div>
+
+        <div class="flex-last">
+            <div class="g3-1" id="graph3-1"></div>
+            <div class="g3-2" id="graph3-2"></div>
+        </div>
+       
+        
+        <!--Request Analysis-->
+        <div class="flex-div-2">
+               
+               <div class="inside-flex">
+               <div class="g4-1" id="g4-1"></div>
+               <div class="g4-1-1" id="g4-1-1"></div>
+            </div>
+                <div class="g4-2" id="g4-2"></div>
+                <div class="flex-div-2-1">
+                    <div class="g5-1" id="g5-1">
+                        <h2>Response Time Statistics</h2>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div class="g5-2" id="g5-2">
+                        <h2>Response Size Statistics</h2>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div class="g5-3" id="g5-3">
+                        <h2>Total Logins</h2>
+                        <p></p>
+                    </div>
+                </div>
+        </div>
+
+        <!--Browser and Device Analysis-->
+        <div class="flex-div-3">
+            <div class="g6" id="graph6"></div>
+
+            <div class="flex-div-3-2">
+                <div class="g7" id="graph7"></div>
+                <div class="g8" id="graph8"></div>
+            </div>
+        </div>
+    </body>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript">
+    obj = 0;
+function yearVsLogin()
+{
+Plotly.newPlot('graph1', [obj.yearvscount.data], obj.yearvscount.layout);
+}
+
+
+
+function requestTypeCount()
+{
+Plotly.newPlot('g4-1', [obj.requesttypecount.data], obj.requesttypecount.layout);
+}
+
+function statusCodes()
+{
+Plotly.newPlot('g4-1-1', [obj.statuscodes.data], obj.statuscodes.layout);
+}
+
+
+function apiCount()
+{
+Plotly.newPlot('g4-2',[obj.apicount.data], obj.apicount.layout);
+}
+
+
+
+function browserAnalysis()
+{
+Plotly.newPlot('graph6',[obj.browseranalysis.data], obj.browseranalysis.layout);
+}
+
+
+
+function deviceAnalysis()
+{
+Plotly.newPlot('graph7',[obj.deviceanalysis.data],obj.deviceanalysis.layout);
+}
+
+
+
+function monthWiseLogin()
+{
+Plotly.newPlot('graph2', [obj.monthwiselogin.data], obj.monthwiselogin.layout);
+}
+
+
+function dateWiseLogin()
+{
+Plotly.newPlot('graph3-1',[obj.datewiselogin.data],obj.datewiselogin.layout);
+}
+
+function hourWiseLogin()
+{
+    Plotly.newPlot('graph3-2',[obj.hourwiselogin.data],obj.hourwiselogin.layout);
+}
+
+function osAnalysis()
+{
+Plotly.newPlot('graph8', [obj.osanalysis.data], obj.osanalysis.layout);
+loadJSON();
+}
+
+function setStatistics()
+{
+	document.getElementById("g5-1").getElementsByTagName("p")[0].innerText="Min Response Time : " + obj.responsetime[0] + " ns";
+	document.getElementById("g5-1").getElementsByTagName("p")[1].innerText="Max Response Time : " + obj.responsetime[1] + " ns";
+	document.getElementById("g5-1").getElementsByTagName("p")[2].innerText="Avg Response Time : " + obj.responsetime[2] + " ns";
+
+	document.getElementById("g5-2").getElementsByTagName("p")[0].innerText="Min Response Time : " + obj.responsesize[0] + " bytes";
+	document.getElementById("g5-2").getElementsByTagName("p")[1].innerText="Max Response Time : " + obj.responsesize[1] + " bytes";
+	document.getElementById("g5-2").getElementsByTagName("p")[2].innerText="Avg Response Time : " + obj.responsesize[2] + " bytes";
+
+	document.getElementById("g5-3").getElementsByTagName("p")[0].innerText="Total User Logins : " + obj.ulogins;
+}
+
+
+function loadJSON() {
+  obj = 0;
+  console.log("Called");
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      obj = JSON.parse(this.response);
+      console.log(obj.ulogins)
+      yearVsLogin();
+      dateWiseLogin();
+      hourWiseLogin();
+      monthWiseLogin();
+      requestTypeCount();
+      statusCodes();
+      apiCount();
+      setStatistics();
+      browserAnalysis();
+      deviceAnalysis();
+      osAnalysis();
+    }
+  };
+  xmlhttp.open("GET", "/json", true);
+  xmlhttp.send();
+}
+    </script>
+</html>

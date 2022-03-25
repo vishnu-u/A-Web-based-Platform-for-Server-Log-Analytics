@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LogStack - All in one Solution to Server Log Analytis</title>
+        <link rel="stylesheet" href="../static/home.css">
+        <script type="text/javascript">
+         function setExp(sel) {
+        document.getElementById("explanation").innerHTML = sel.options[sel.selectedIndex].value;
+        document.forms['connect_form'].action = "http://127.0.0.1:5000" + document.getElementById("conn").options[document.getElementById("conn").selectedIndex].getAttribute('url');
+
+        }  
+        </script>
+    </head>
+
+    <body>
+
+    <div class='header'>
+        <h1>LogStack&trade;</h1>
+    </div>
+
+    <h2>All-in-One Solution to Server Log Analytics</h2>
+    
+    <div class="selection">
+    <form name="connect_form" action="http://127.0.0.1:5000/filequery" target="_blank">   
+    <label for="cars">Choose Connection : </label>
+    <select name="conn" id="conn" onChange='setExp(this)'>  
+        <option value='Query a File by Uploading a File' url='/filequery' selected>FileQuery with Upload</option>
+        <option value='Query an existing file in our server' url='/filequerypage'>FileQuery</option>
+        <option value='View Analytics Dashboard by Uploading a File' url='/filedashboard'>FileDashboard with Upload</option>
+        <option value='View Analytics Dashboard of an existing file in our server' url='/filedashboardpage'>FileDashboard</option>
+        <option value='Query data from a Cloud Source' url='/cloudquerypage'>CloudQuery</option>
+        <option value='View Analytics Dashboard from a Cloud Data Source' url='/clouddashboard'>CloudDashboard</option>
+        <option value='Purge Warehouse Data' url='/purge'>Purge Warehouse</option>
+    </select>
+    <span id="explanation">Query a File by Uploading</span>
+    <button name="button" type='submit'>Connect</button>
+    </form>
+    </div>
+    </body>
+
+</html>

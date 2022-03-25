@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link rel="stylesheet" href="/static/homeP.css" />
+    <title>File Dashboard</title>
+  </head>
+
+  <body>
+    <div id="head">
+      <p>File Dashboard</p>
+    </div>
+    <div id="fm">
+      <form
+        action="http://127.0.0.1:5000/filedashoutput"
+        class="fm1"
+        id="f1"
+        method="POST"
+        enctype="multipart/form-data",
+        target="_blank"
+      >
+        <h1>Upload your logs</h1>
+        <h4>{{ msg }}</h4>
+        <input type="file" name="file" id="file" hidden />
+        <label for="file" id="selector">Select file</label>
+        <input class="at sub" type="submit" name="submit1" />
+      </form>
+    </div>
+    <script src="{{url_for('static', filename='./homeJS.js')}}"></script>
+  </body>
+</html>

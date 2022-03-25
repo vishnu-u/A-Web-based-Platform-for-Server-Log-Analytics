@@ -1,0 +1,5 @@
+flask==1.1.2
+pyodbc
+json
+pandas == 1.0.3
+plotly == 4.14.3

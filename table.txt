@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cff8873816f32a6a493d1484074d0cc5a7118463d347d7baead6a701c9020e35
-size 317
+CREATE TABLE WEBLOGS(IPAddress VARCHAR(20),RemoteLogName CHAR(1),UserID CHAR(1),Day INT,Month INT,Year INT,HH INT,RequestType varchar(20),API varchar(30),StatusCode INT,Bytes INT,Refferer varchar(100),UserAgent varchar(200),ResponseTime INT, Timestamp datetime,Browser varchar(10),OS varchar(10),Device varchar(10) );
